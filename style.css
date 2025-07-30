@@ -1,0 +1,72 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 20px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Senyera.svg/320px-Senyera.svg.png');
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 100px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.cell {
+  background-color: #ffffff;
+  border: 3px solid #ccc;
+  border-radius: 12px;
+  padding: 40px 0;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  position: relative;
+  font-size: 22px;
+  color: #333;
+}
+
+.cell.clicked-once {
+  background-color: orange;
+  color: transparent;
+  animation: twist 0.5s ease;
+}
+
+.cell.clicked-twice {
+  background-color: #222;
+  color: transparent;
+  pointer-events: none;
+}
+
+.year {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.cell.clicked-twice .year {
+  opacity: 1;
+}
+
+@keyframes twist {
+  0% { transform: rotate(0deg) scale(1); }
+  30% { transform: rotate(10deg) scale(1.1); }
+  70% { transform: rotate(-10deg) scale(1.1); }
+  100% { transform: rotate(0deg) scale(1); }
+}
